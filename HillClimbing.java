@@ -9,7 +9,6 @@ public class HillClimbing {
 
     private static ArrayList<double[]> generateNeighbours(double[] startVector){
 
-        //System.out.println("now here");
         ArrayList<double[]> neighbours = new ArrayList<double[]>();
         double[] vector = new double[3];
 
@@ -19,15 +18,10 @@ public class HillClimbing {
             for (int j = 0; j < 3; j++){
                 for (int k = 0; k < 3; k++){
                     vector = new double[]{startVector[0] + diff[i], startVector[1] + diff[j], startVector[2] + diff[k]};
-                    //double mag = Math.sqrt(Math.pow(vector[0], 2) + Math.pow(vector[1], 2) + Math.pow(vector[2], 2));
-                    //System.out.println(i+j+k);
                     if(!(Arrays.equals(vector, startVector)) && !isUsed(vector)) neighbours.add(vector);
-                        //write new method for contains bc memory references
                 }
             }
         }
-        //System.out.println("and now here");
-
         return neighbours;
     }
 
@@ -51,8 +45,6 @@ public class HillClimbing {
             Probe.setVelocity(neighbours.get(i));
             distances.add(Simulations.simulationWithProbeForHC(duration, target, distanceFromCentre));
 
-//            SolarSystem.resetStates();
-//            Probe.resetState();
             SolarSystem.setPositions(solarSystemInitPositions);
             SolarSystem.setVelocities(solarSystemInitVelocities);
             Probe.setPosition(probeInitPosition);
@@ -61,11 +53,6 @@ public class HillClimbing {
 
         //get index of the smallest distance /// to mid-orbit
         int index = distances.indexOf(Collections.min(distances));
-
-//        ArrayList<Double> magnitudes = new ArrayList<>();
-//        for (double[] n: neighbours) {
-//            magnitudes.add(Math.sqrt(Math.pow(n[0], 2) + Math.pow(n[1], 2) + Math.pow(n[2], 2)));
-//        }
 
         //create output list
         ArrayList<Object> newBest = new ArrayList<>();
@@ -111,8 +98,7 @@ public class HillClimbing {
         double[] currentBest = probeInitVelocity;
         double bestDist = Probe.calculateDistanceToTarget(target); //local infinity
         System.out.println(bestDist);
-//        SolarSystem.resetStates();
-//        Probe.resetState();
+
         SolarSystem.setPositions(solarSystemInitPositions);
         SolarSystem.setVelocities(solarSystemInitVelocities);
         Probe.setPosition(probeInitPosition);

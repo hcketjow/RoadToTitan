@@ -34,9 +34,6 @@ public class AdamsMoultonSimulations {
             prevPrevAcc[i] = SolarSystem.calculateAccelerationOfBody(i);
         }
         prevPrevState.add(prevPrevAcc);
-
-        // prevPos = new double[SolarSystem.N_OF_OBJECTS][3];
-        // prevVel = new double[SolarSystem.N_OF_OBJECTS][3];
     
         for (int i = 0; i < SolarSystem.N_OF_OBJECTS; i++) {
             prevPos[i] = RK3Solver.rungeKutta3ForBody(i)[0];
@@ -57,9 +54,6 @@ public class AdamsMoultonSimulations {
         SolarSystem.setPositions(prevPos);
         SolarSystem.setVelocities(prevVel);
 
-        // Probe.setPosition(MissionData.PROBE_INIT_POSITION);
-        // Probe.setVelocity(MissionData.PROBE_INIT_VELOCITY);
-
         // updating prevprev and prev state of probe
         prevPrevPosProbe = Probe.getPosition();
         prevPrevStateProbe.add(prevPrevPosProbe);
@@ -68,15 +62,11 @@ public class AdamsMoultonSimulations {
         prevPrevAccProbe = Probe.calculateAccelerationOfProbe();
         prevPrevStateProbe.add(prevPrevAccProbe);
 
-        // prevPosProbe = new double[3];
-        // prevVelProbe = new double[3];
-
         prevPosProbe = RK3Solver.rungeKutta3ForProbe()[0];
         prevStateProbe.add(prevPosProbe);
         prevVelProbe = RK3Solver.rungeKutta3ForProbe()[1];
         prevStateProbe.add(prevVelProbe);
 
-        // prevAccProbe = new double[3];
         prevAccProbe = AdamsMoulton.calculateAccelerationForProbe(prevPosProbe);
         prevStateProbe.add(prevAccProbe);
 

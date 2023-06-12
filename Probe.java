@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 public class Probe {
 
@@ -11,6 +12,12 @@ public class Probe {
     private static final int maxVelocityMag = MissionData.PROBE_MAX_VELOCITY_MAG;
 
     private static double distToTitan;
+
+    public static AtomicBoolean reachedTitan = new AtomicBoolean(false);
+    public static AtomicBoolean goingBack = new AtomicBoolean(false);
+    public static AtomicBoolean landed = new AtomicBoolean(false);
+
+
 
 
     private static double[] calculateTotalForceOnProbe(){

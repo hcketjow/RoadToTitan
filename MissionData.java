@@ -1,13 +1,16 @@
 import java.time.Duration;
 import java.time.LocalDateTime;
 import java.util.Map;
+import java.util.concurrent.atomic.AtomicBoolean;
+
 import static java.util.Map.entry;
 
 //Mission parameters specification
 public class MissionData {
 
     //Differential equation solver
-    static final String SOLVER = "rk4"; //options: "euler", "rk4", "ab3", "am2";
+    static final String SOLVER = "euler"; //options: "euler", "rk4", "ab3", "am2";
+    static final AtomicBoolean testingSolvers = new AtomicBoolean(false); //set to true if "ab3" or "am2" is chosen as SOLVER
 
     //Time step size in seconds
     public static final long TIME_STEP_SIZE = 5000;
