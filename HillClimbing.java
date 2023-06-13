@@ -44,11 +44,7 @@ public class HillClimbing {
         for(int i = 0; i < neighbours.size(); i++){
             Probe.setVelocity(neighbours.get(i));
             distances.add(Simulations.simulationWithProbeForHC(duration, target, distanceFromCentre));
-
-            SolarSystem.setPositions(solarSystemInitPositions);
-            SolarSystem.setVelocities(solarSystemInitVelocities);
-            Probe.setPosition(probeInitPosition);
-            Probe.setVelocity(probeInitVelocity);
+            resetAllStates(solarSystemInitPositions, solarSystemInitVelocities, probeInitPosition, probeInitVelocity);
         }
 
         //get index of the smallest distance /// to mid-orbit
@@ -68,27 +64,19 @@ public class HillClimbing {
             newBest.add(currentBestDist);
             return newBest;
         }
-
-
     }
 
     public static ArrayList<Object> computeNewVector(double[][] solarSystemInitPositions, double[][] solarSystemInitVelocities, double[] probeInitPosition, double[] probeInitVelocity, long duration, String missionStage, String target){
-
         switch (missionStage){
             case "going to titan orbit":
                 return executeHillClimbing(solarSystemInitPositions, solarSystemInitVelocities, probeInitPosition, probeInitVelocity, duration, target, MissionData.TITAN_RADIUS + (300 + 100) / 2, 100);
-
             case "staying on titan orbit":
                 return hillClimbingToOrbitTitan(probeInitVelocity, -1, solarSystemInitPositions, solarSystemInitVelocities, probeInitPosition, probeInitVelocity, duration);
-
             case "going back to earth":
                 return executeHillClimbing(solarSystemInitPositions, solarSystemInitVelocities, probeInitPosition, probeInitVelocity, duration, target, 0, MissionData.EARTH_RADIUS);
-
             default:
                 return new ArrayList<>();
-
         }
-
     }
 
     private static ArrayList<Object> executeHillClimbing(double[][] solarSystemInitPositions, double[][] solarSystemInitVelocities, double[] probeInitPosition, double[] probeInitVelocity, long duration, String target, int distanceFromCentre, int offset) {
@@ -99,10 +87,7 @@ public class HillClimbing {
         double bestDist = Probe.calculateDistanceToTarget(target); //local infinity
         System.out.println(bestDist);
 
-        SolarSystem.setPositions(solarSystemInitPositions);
-        SolarSystem.setVelocities(solarSystemInitVelocities);
-        Probe.setPosition(probeInitPosition);
-        Probe.setVelocity(probeInitVelocity);
+        resetAllStates(solarSystemInitPositions, solarSystemInitVelocities, probeInitPosition, probeInitVelocity);
 
         System.out.println("------step: " + step + "--------");
         ArrayList<Object> newBest = hillClimbing(currentBest, bestDist, solarSystemInitPositions, solarSystemInitVelocities, probeInitPosition, probeInitVelocity, duration, target, distanceFromCentre, offset);
@@ -114,27 +99,30 @@ public class HillClimbing {
             step = step/2;
         }
 
-        if(MissionData.TIME_STEP_SIZE <= 500){
-            step = 18;
-        }else{
-            step = 20;
-        }
         //an optimisation trick based on coarse observations - 750: 20; //1000: 20; //2000: 20; //500: 18; (solver step: hill climbing step)
         //why? not sure, but this way it is actually fast
+        if(MissionData.TIME_STEP_SIZE <= 500)
+            step = 18;
+        else
+            step = 20;
 
         usedVectors = new ArrayList<>();
 
         System.out.println("done");
-
         System.out.println("vector: " + Arrays.toString((double[]) newBest.get(0)));
         System.out.println("mag: " + Math.sqrt(Math.pow(((double[]) newBest.get(0))[0], 2) + Math.pow(((double[]) newBest.get(0))[1], 2) + Math.pow(((double[]) newBest.get(0))[2], 2)));
-
         System.out.println("distance to orbit: " + newBest.get(1));
-
         System.out.println(Arrays.toString(currentBest) + "\t -init");
         System.out.println(bestDist + "\t \t -init");
 
         return newBest;
+    }
+
+    private static void resetAllStates(double[][] solarSystemInitPositions, double[][] solarSystemInitVelocities, double[] probeInitPosition, double[] probeInitVelocity) {
+        SolarSystem.setPositions(solarSystemInitPositions);
+        SolarSystem.setVelocities(solarSystemInitVelocities);
+        Probe.setPosition(probeInitPosition);
+        Probe.setVelocity(probeInitVelocity);
     }
 
     private static ArrayList<Object> hillClimbingToOrbitTitan(double[] currentBestVector, int currentBestCount, double[][] solarSystemInitPositions, double[][] solarSystemInitVelocities, double[] probeInitPosition, double[] probeInitVelocity, long duration) {
@@ -154,17 +142,13 @@ public class HillClimbing {
         Probe.setVelocity(v);
         int count = Simulations.simulationWithProbeForHCtoOrbitTitan(duration);
 
-        SolarSystem.setPositions(solarSystemInitPositions);
-        SolarSystem.setVelocities(solarSystemInitVelocities);
-        Probe.setPosition(probeInitPosition);
-        Probe.setVelocity(probeInitVelocity);
+        resetAllStates(solarSystemInitPositions, solarSystemInitVelocities, probeInitPosition, probeInitVelocity);
 
         System.out.println(count);
 
         if(correction <= 1){
             System.out.println(Arrays.toString(currentBestVector));
             System.out.println(currentBestCount);
-
             if(count >= currentBestCount){
                 correction += 0.001/4/2/2/5/3;
                 return hillClimbingToOrbitTitan(v, count, solarSystemInitPositions, solarSystemInitVelocities, probeInitPosition, probeInitVelocity, duration);
@@ -178,10 +162,7 @@ public class HillClimbing {
             newBest.add(currentBestCount);
             return newBest;
         }
-
     }
-
-
         private static boolean isUsed(double[] vector){
         for(double[] v : usedVectors){
             if(v[0] == vector[0] && v[1] == vector[1] && v[2] == vector[2]){
@@ -189,17 +170,6 @@ public class HillClimbing {
             }
         }
         return false;
-    }
-
-
-    public static void main(String[] args) {
-        long start = System.currentTimeMillis();
-        //double[] newVector = computeNewVector(MissionData.SOLAR_SYSTEM_INIT_POSITIONS, MissionData.SOLAR_SYSTEM_INIT_VELOCITIES, MissionData.PROBE_INIT_POSITION, MissionData.PROBE_INIT_VELOCITY, Duration.between(MissionData.LAUNCH_DATE, MissionData.FINISH_DATE).getSeconds() / MissionData.TIME_STEP_SIZE, "missionStage");
-
-        System.out.println("METHOD CALL DONE");
-        System.out.println("time, sec: " + (System.currentTimeMillis() - start) / 1000.0);
-        System.out.println("done.");
-
     }
 
 }

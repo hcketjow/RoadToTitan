@@ -15,10 +15,13 @@ public class MissionData {
     //Time step size in seconds
     public static final long TIME_STEP_SIZE = 5000;
 
+    public static final double GRAVITY_TITAN = 1.352 * Math.pow(10, -3);    //km/s^2
+
     static final double GRAVITY_CONSTANT = 6.6743 * Math.pow(10, -20);
 
     //Celestial objects' states at launch
     //order: sun, mercury, venus, earth, moon, mars, jupiter, saturn, titan, neptune, uranus
+
     public static final double[][] SOLAR_SYSTEM_INIT_POSITIONS = { { 0, 0, 0 }, { 7833268.43923962, 44885949.3703908, 2867693.20054382 }, { -28216773.9426889, 103994008.541512, 3012326.64296788 },
             { -148186906.893642, -27823158.5715694, 33746.8987977113 }, { -148458048.395164, -27524868.1841142, 70233.6499287411 }, { -159116303.422552,	189235671.561057, 7870476.08522969 },
             { 692722875.928222,	258560760.813524, -16570817.7105996 }, { 1253801723.95465, -760453007.810989, -36697431.1565206 }, { 1254501624.95946, -761340299.067828,	-36309613.8378104 },
@@ -31,10 +34,16 @@ public class MissionData {
 
     public static final double[] MASSES = {  1.99e30 ,  3.30e23 ,  4.87e24 ,  5.97e24 ,  7.35e22 ,  6.42e23 , 1.90e27 ,  5.68e26 ,  1.35e23 ,  1.02e26 ,  8.68e25 };
 
-    public static final int EARTH_RADIUS = 6370;
     public static final int TITAN_RADIUS = 2575;
+    public static final int EARTH_RADIUS = 6370;
 
-    //order: sun, mercury, venus, earth, moon, mars, jupiter, saturn, titan, neptune, uranus
+    public static final double Y_LANDING = TITAN_RADIUS;                    //0 km from the surface
+    public static final double DELTA_X_LANDING = Math.pow(10, -4);          //km
+    public static final double DELTA_THETA_LANDING = 0.02;                  //rad
+    public static final double EPSILON_X_LANDING = Math.pow(10, -4);        //km/s
+    public static final double EPSILON_Y_LANDING = Math.pow(10, -4);        //km/s
+    public static final double EPSILON_THETA_LANDING = 0.01;                //rad/s
+
     public static final Map<String, Integer> idMap = Map.ofEntries(
             entry("sun", 0),
             entry("mercury", 1),
@@ -59,8 +68,12 @@ public class MissionData {
 
     //Spacecraft-related fields
     public static final double PROBE_MASS = 50000;
-    public static final int PROBE_MAX_VELOCITY_MAG = 60;   // relative to Earth
-    public static final int PROBE_MAX_FORCE_MAG =  3*10000000;   // N
+    public static final int PROBE_MAX_VELOCITY_MAG = 60;                    // relative to Earth
+    public static final int PROBE_MAX_FORCE_MAG = 3*10000000;               // N
+    public static final double PROBE_MAX_ACCELERATION = 10*GRAVITY_TITAN;   //km/s^2
+    public static final double PROBE_MAX_TORQUE = 1;                        //rad*s^2
+
+
     //default (position: Earth's centre offset by Earth's radius on x, velocity: hand-picked vector from phase 1
     public static final double[] PROBE_INIT_POSITION = {SOLAR_SYSTEM_INIT_POSITIONS[idMap.get("earth")][0] + EARTH_RADIUS, SOLAR_SYSTEM_INIT_POSITIONS[idMap.get("earth")][1], SOLAR_SYSTEM_INIT_POSITIONS[idMap.get("earth")][2]};
     public static final double[] PROBE_INIT_VELOCITY = {42, -42, -11};//for step 1000: , {43.053436279296875, -42.77777099609375, -3.1736793518066406};//{42.7210693359375, -43.122314453125, -3.2548828125};//{43.053436279296875, -42.77777099609375, -3.1736793518066406}; //{42.7210693359375, -43.122314453125, -3.2548828125};

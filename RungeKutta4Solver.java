@@ -1,13 +1,10 @@
 //k1, k2, k3, and k4: Intermediate variables used in the RK4 method to calculate the new position. They store the velocities.
 //v1, v2, v3, and v4: Intermediate variables used in the RK4 method to calculate the new velocity. They store the accelerations.
 
-import java.util.Arrays;
-
 public class RungeKutta4Solver {
     public static double[][] rungeKutta4ForBody(int i) {
         double[][] initPositions = SolarSystem.getPositions();
         double[][] initVelocities = SolarSystem.getVelocities();
-
         double[][] newState = new double[2][3];
         double[] newPos = new double[3];
         double[] newVel = new double[3];
@@ -16,67 +13,27 @@ public class RungeKutta4Solver {
         double[] k1, k2, k3, k4, a1, a2, a3, a4;
 
         // Calculate k1 and a1
-        k1 = prevVel.clone();
-        k1 = new double[]{MissionData.TIME_STEP_SIZE*k1[0], MissionData.TIME_STEP_SIZE*k1[1], MissionData.TIME_STEP_SIZE*k1[2]};
-        a1 = SolarSystem.calculateAccelerationOfBody(i);
-        a1 = new double[]{MissionData.TIME_STEP_SIZE*a1[0], MissionData.TIME_STEP_SIZE*a1[1], MissionData.TIME_STEP_SIZE*a1[2]};
+        k1 = computekn(prevVel.clone());
+        a1 = computekn(SolarSystem.calculateAccelerationOfBody(i));
 
         //Modified Euler step for k2 (step/2, update with k1)
-        double[][] newPositionsFork2 = new double[SolarSystem.N_OF_OBJECTS][3];
-        double[][] newVelocitiesFork2 = new double[SolarSystem.N_OF_OBJECTS][3];
-        for(int j = 0; j < SolarSystem.N_OF_OBJECTS; j++){
-            for(int entry = 0; entry < 3; entry++){
-                newPositionsFork2[j][entry] = SolarSystem.getPositions()[j][entry] + 0.5 * k1[entry];
-                newVelocitiesFork2[j][entry] = SolarSystem.getVelocities()[j][entry] + 0.5 * a1[entry];
-            }
-        }
-        SolarSystem.setPositions(newPositionsFork2);
-        SolarSystem.setVelocities(newVelocitiesFork2);
-        k2 = newVelocitiesFork2[i];
-        k2 = new double[]{MissionData.TIME_STEP_SIZE*k2[0], MissionData.TIME_STEP_SIZE*k2[1], MissionData.TIME_STEP_SIZE*k2[2]};
-        a2 = SolarSystem.calculateAccelerationOfBody(i);
-        a2 = new double[]{MissionData.TIME_STEP_SIZE*a2[0], MissionData.TIME_STEP_SIZE*a2[1], MissionData.TIME_STEP_SIZE*a2[2]};
-
-        SolarSystem.setPositions(initPositions);
-        SolarSystem.setVelocities(initVelocities);
+        double[][] newVelocitiesFork2 = getVelocitiesFork(k1, a1, 0.5);
+        k2 = computekn(newVelocitiesFork2[i]);
+        a2 = computekn(SolarSystem.calculateAccelerationOfBody(i));
+        resetStates(initPositions, initVelocities);
 
         //Modified Euler step for k3 (step/2, update with k2)
-        double[][] newPositionsFork3 = new double[SolarSystem.N_OF_OBJECTS][3];
-        double[][] newVelocitiesFork3 = new double[SolarSystem.N_OF_OBJECTS][3];
-        for(int j = 0; j < SolarSystem.N_OF_OBJECTS; j++){
-            for(int entry = 0; entry < 3; entry++){
-                newPositionsFork3[j][entry] = SolarSystem.getPositions()[j][entry] + 0.5 * k2[entry];
-                newVelocitiesFork3[j][entry] = SolarSystem.getVelocities()[j][entry] + 0.5 * a2[entry];
-            }
-        }
-        SolarSystem.setPositions(newPositionsFork3);
-        SolarSystem.setVelocities(newVelocitiesFork3);
-        k3 = newVelocitiesFork3[i];
-        k3 = new double[]{MissionData.TIME_STEP_SIZE*k3[0], MissionData.TIME_STEP_SIZE*k3[1], MissionData.TIME_STEP_SIZE*k3[2]};
-        a3 = SolarSystem.calculateAccelerationOfBody(i);
-        a3 = new double[]{MissionData.TIME_STEP_SIZE*a3[0], MissionData.TIME_STEP_SIZE*a3[1], MissionData.TIME_STEP_SIZE*a3[2]};
+        double[][] newVelocitiesFork3 = getVelocitiesFork(k2, a2, 0.5);
+        k3 = computekn(newVelocitiesFork3[i]);
+        a3 = computekn(SolarSystem.calculateAccelerationOfBody(i));
+        resetStates(initPositions, initVelocities);
 
-        SolarSystem.setPositions(initPositions);
-        SolarSystem.setVelocities(initVelocities);
 
         //Modified Euler step for k4 (step, update with k3)
-        double[][] newPositionsFork4 = new double[SolarSystem.N_OF_OBJECTS][3];
-        double[][] newVelocitiesFork4 = new double[SolarSystem.N_OF_OBJECTS][3];
-        for(int j = 0; j < SolarSystem.N_OF_OBJECTS; j++){
-            for(int entry = 0; entry < 3; entry++){
-                newPositionsFork4[j][entry] = SolarSystem.getPositions()[j][entry] + k3[entry];
-                newVelocitiesFork4[j][entry] = SolarSystem.getVelocities()[j][entry] + a3[entry];
-            }
-        }
-        SolarSystem.setPositions(newPositionsFork4);
-        SolarSystem.setVelocities(newVelocitiesFork4);
-        k4 = newVelocitiesFork4[i];
-        k4 = new double[]{MissionData.TIME_STEP_SIZE*k4[0], MissionData.TIME_STEP_SIZE*k4[1], MissionData.TIME_STEP_SIZE*k4[2]};
-        a4 = SolarSystem.calculateAccelerationOfBody(i);
-        a4 = new double[]{MissionData.TIME_STEP_SIZE*a4[0], MissionData.TIME_STEP_SIZE*a4[1], MissionData.TIME_STEP_SIZE*a4[2]};
-
-        SolarSystem.setPositions(initPositions);
-        SolarSystem.setVelocities(initVelocities);
+        double[][] newVelocitiesFork4 = getVelocitiesFork(k3, a3, 1);
+        k4 = computekn(newVelocitiesFork4[i]);
+        a4 = computekn(SolarSystem.calculateAccelerationOfBody(i));
+        resetStates(initPositions, initVelocities);
 
         // Calculate newPos and newVel using k1, k2, k3, k4, l1, l2, l3, l4
         for (int entry = 0; entry < 3; entry++) {
@@ -88,6 +45,30 @@ public class RungeKutta4Solver {
         newState[1] = newVel;
 
         return newState;
+    }
+
+    private static void resetStates(double[][] initPositions, double[][] initVelocities) {
+        SolarSystem.setPositions(initPositions);
+        SolarSystem.setVelocities(initVelocities);
+    }
+
+    private static double[] computekn(double[] newVelocitiesFork2) {
+        double[] k = newVelocitiesFork2;
+        k = new double[]{MissionData.TIME_STEP_SIZE*k[0], MissionData.TIME_STEP_SIZE*k[1], MissionData.TIME_STEP_SIZE*k[2]};
+        return k;
+    }
+
+    private static double[][] getVelocitiesFork(double[] kn, double[] an, double c) {
+        double[][] newPositionsFork = new double[SolarSystem.N_OF_OBJECTS][3];
+        double[][] newVelocitiesFork = new double[SolarSystem.N_OF_OBJECTS][3];
+        for(int j = 0; j < SolarSystem.N_OF_OBJECTS; j++){
+            for(int entry = 0; entry < 3; entry++){
+                newPositionsFork[j][entry] = SolarSystem.getPositions()[j][entry] + c * kn[entry];
+                newVelocitiesFork[j][entry] = SolarSystem.getVelocities()[j][entry] + c * an[entry];
+            }
+        }
+        resetStates(newPositionsFork, newVelocitiesFork);
+        return newVelocitiesFork;
     }
 
     public static double[][] rk4MethodForProbe() {
@@ -104,95 +85,31 @@ public class RungeKutta4Solver {
         double[] k1, k2, k3, k4, a1, a2, a3, a4;
 
         // Calculate k1 and a1
-        k1 = prevVel.clone();
-        k1 = new double[]{MissionData.TIME_STEP_SIZE*k1[0], MissionData.TIME_STEP_SIZE*k1[1], MissionData.TIME_STEP_SIZE*k1[2]};
-        a1 = Probe.calculateAccelerationOfProbe();
-        a1 = new double[]{MissionData.TIME_STEP_SIZE*a1[0], MissionData.TIME_STEP_SIZE*a1[1], MissionData.TIME_STEP_SIZE*a1[2]};
+        k1 = computekn(prevVel.clone());
+        a1 = computekn(Probe.calculateAccelerationOfProbe());
 
         //Modified Euler step for k2 (step/2, update with k1)
-        double[][] newPositionsFork2 = new double[SolarSystem.N_OF_OBJECTS][3];
-        double[][] newVelocitiesFork2 = new double[SolarSystem.N_OF_OBJECTS][3];
-        for(int j = 0; j < SolarSystem.N_OF_OBJECTS; j++){
-            for(int entry = 0; entry < 3; entry++){
-                newPositionsFork2[j][entry] = SolarSystem.getPositions()[j][entry] + 0.5 * k1[entry];
-                newVelocitiesFork2[j][entry] = SolarSystem.getVelocities()[j][entry] + 0.5 * a1[entry];
-            }
-        }
-        double[] probePositionFork2 = new double[3];
-        double[] probeVelocityFork2 = new double[3];
-        for(int entry = 0; entry < 3; entry++){
-            probePositionFork2[entry] = prevPos[entry] + 0.5 * k1[entry];
-            probeVelocityFork2[entry] = prevVel[entry] + 0.5 * a1[entry];
-        }
-        SolarSystem.setPositions(newPositionsFork2);
-        SolarSystem.setVelocities(newVelocitiesFork2);
-        Probe.setPosition(probePositionFork2);
-        Probe.setVelocity(probeVelocityFork2);
-        k2 = probeVelocityFork2;
-        k2 = new double[]{MissionData.TIME_STEP_SIZE*k2[0], MissionData.TIME_STEP_SIZE*k2[1], MissionData.TIME_STEP_SIZE*k2[2]};
-        a2 = Probe.calculateAccelerationOfProbe();
-        a2 = new double[]{MissionData.TIME_STEP_SIZE*a2[0], MissionData.TIME_STEP_SIZE*a2[1], MissionData.TIME_STEP_SIZE*a2[2]};
+        double[] probeVelocityFork2 = getProbeVelocityFork2(prevPos, prevVel, k1, a1, 0.5);
+        k2 = computekn(probeVelocityFork2);
+        a2 = computekn(Probe.calculateAccelerationOfProbe());
 
-        SolarSystem.setPositions(initPositions);
-        SolarSystem.setVelocities(initVelocities);
-        Probe.setPosition(initPosition);
-        Probe.setVelocity(initVelocity);
+        resetStates(initPositions, initVelocities);
+        resetState(initPosition, initVelocity);
 
         //Modified Euler step for k3 (step/2, update with k2)
-        double[][] newPositionsFork3 = new double[SolarSystem.N_OF_OBJECTS][3];
-        double[][] newVelocitiesFork3 = new double[SolarSystem.N_OF_OBJECTS][3];
-        for(int j = 0; j < SolarSystem.N_OF_OBJECTS; j++){
-            for(int entry = 0; entry < 3; entry++){
-                newPositionsFork3[j][entry] = SolarSystem.getPositions()[j][entry] + 0.5 * k2[entry];
-                newVelocitiesFork3[j][entry] = SolarSystem.getVelocities()[j][entry] + 0.5 * a2[entry];
-            }
-        }
-        double[] probePositionFork3 = new double[3];
-        double[] probeVelocityFork3 = new double[3];
-        for(int entry = 0; entry < 3; entry++){
-            probePositionFork3[entry] = prevPos[entry] + 0.5 * k2[entry];
-            probeVelocityFork3[entry] = prevVel[entry] + 0.5 * a2[entry];
-        }
-        SolarSystem.setPositions(newPositionsFork3);
-        SolarSystem.setVelocities(newVelocitiesFork3);
-        Probe.setPosition(probePositionFork3);
-        Probe.setVelocity(probeVelocityFork3);
-        k3 = probeVelocityFork3;
-        k3 = new double[]{MissionData.TIME_STEP_SIZE*k3[0], MissionData.TIME_STEP_SIZE*k3[1], MissionData.TIME_STEP_SIZE*k3[2]};
-        a3 = Probe.calculateAccelerationOfProbe();
-        a3 = new double[]{MissionData.TIME_STEP_SIZE*a3[0], MissionData.TIME_STEP_SIZE*a3[1], MissionData.TIME_STEP_SIZE*a3[2]};
+        double[] probeVelocityFork3 = getProbeVelocityFork2(prevPos, prevVel, k2, a2, 0.5);
+        k3 = computekn(probeVelocityFork3);
+        a3 = computekn(Probe.calculateAccelerationOfProbe());
 
-        SolarSystem.setPositions(initPositions);
-        SolarSystem.setVelocities(initVelocities);
-        Probe.setPosition(initPosition);
-        Probe.setVelocity(initVelocity);
+        resetStates(initPositions, initVelocities);
+        resetState(initPosition, initVelocity);
 
         //Modified Euler step for k4 (step, update with k3)
-        double[][] newPositionsFork4 = new double[SolarSystem.N_OF_OBJECTS][3];
-        double[][] newVelocitiesFork4 = new double[SolarSystem.N_OF_OBJECTS][3];
-        for(int j = 0; j < SolarSystem.N_OF_OBJECTS; j++){
-            for(int entry = 0; entry < 3; entry++){
-                newPositionsFork4[j][entry] = SolarSystem.getPositions()[j][entry] + k3[entry];
-                newVelocitiesFork4[j][entry] = SolarSystem.getVelocities()[j][entry] + a3[entry];
-            }
-        }
-        double[] probePositionFork4 = new double[3];
-        double[] probeVelocityFork4 = new double[3];
-        for(int entry = 0; entry < 3; entry++){
-            probePositionFork4[entry] = prevPos[entry] + 0.5 * k3[entry];
-            probeVelocityFork4[entry] = prevVel[entry] + 0.5 * a3[entry];
-        }
-        SolarSystem.setPositions(newPositionsFork4);
-        SolarSystem.setVelocities(newVelocitiesFork4);
-        Probe.setPosition(probePositionFork4);
-        Probe.setVelocity(probeVelocityFork4);
-        k4 = probeVelocityFork4;
-        k4 = new double[]{MissionData.TIME_STEP_SIZE*k4[0], MissionData.TIME_STEP_SIZE*k4[1], MissionData.TIME_STEP_SIZE*k4[2]};
-        a4 = Probe.calculateAccelerationOfProbe();
-        a4 = new double[]{MissionData.TIME_STEP_SIZE*a4[0], MissionData.TIME_STEP_SIZE*a4[1], MissionData.TIME_STEP_SIZE*a4[2]};
+        double[] probeVelocityFork4 = getProbeVelocityFork2(prevPos, prevVel, k3, a3, 1);
+        k4 = computekn(probeVelocityFork4);
+        a4 = computekn(Probe.calculateAccelerationOfProbe());
 
-        SolarSystem.setPositions(initPositions);
-        SolarSystem.setVelocities(initVelocities);
+        resetStates(initPositions, initVelocities);
 
         // Calculate newPos and newVel using k1, k2, k3, k4, l1, l2, l3, l4
         for (int entry = 0; entry < 3; entry++) {
@@ -204,5 +121,30 @@ public class RungeKutta4Solver {
         newState[1] = newVel;
 
         return newState;
+    }
+
+    private static double[] getProbeVelocityFork2(double[] prevPos, double[] prevVel, double[] k1, double[] a1, double c) {
+        double[][] newPositionsFork2 = new double[SolarSystem.N_OF_OBJECTS][3];
+        double[][] newVelocitiesFork2 = new double[SolarSystem.N_OF_OBJECTS][3];
+        for(int j = 0; j < SolarSystem.N_OF_OBJECTS; j++){
+            for(int entry = 0; entry < 3; entry++){
+                newPositionsFork2[j][entry] = SolarSystem.getPositions()[j][entry] + c * k1[entry];
+                newVelocitiesFork2[j][entry] = SolarSystem.getVelocities()[j][entry] + c * a1[entry];
+            }
+        }
+        double[] probePositionFork2 = new double[3];
+        double[] probeVelocityFork2 = new double[3];
+        for(int entry = 0; entry < 3; entry++){
+            probePositionFork2[entry] = prevPos[entry] + c * k1[entry];
+            probeVelocityFork2[entry] = prevVel[entry] + c * a1[entry];
+        }
+        resetStates(newPositionsFork2, newVelocitiesFork2);
+        resetState(probePositionFork2, probeVelocityFork2);
+        return probeVelocityFork2;
+    }
+
+    private static void resetState(double[] probePositionFork2, double[] probeVelocityFork2) {
+        Probe.setPosition(probePositionFork2);
+        Probe.setVelocity(probeVelocityFork2);
     }
 }

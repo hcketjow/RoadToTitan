@@ -16,9 +16,7 @@ public class Probe {
     public static AtomicBoolean reachedTitan = new AtomicBoolean(false);
     public static AtomicBoolean goingBack = new AtomicBoolean(false);
     public static AtomicBoolean landed = new AtomicBoolean(false);
-
-
-
+    public static AtomicBoolean landingOnTitan = new AtomicBoolean(false);
 
     private static double[] calculateTotalForceOnProbe(){
         double[] f = new double[3];
@@ -69,7 +67,6 @@ public class Probe {
         double fuelUnits = Math.sqrt(Math.pow(impulse[0], 2) + Math.pow(impulse[1], 2) + Math.pow(impulse[2], 2));
         return fuelUnits;
     }
-
 
     public static double[] getPosition() {
         return position;

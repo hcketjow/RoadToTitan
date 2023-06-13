@@ -38,11 +38,9 @@ public class SolarSystem {
         double[] a = new double[3];
         double m = MissionData.MASSES[i];
 
-        //final formula:
-        //m * a = f ..where a, f vectors
-        for(int entry = 0; entry < 3; entry++) {
+        for(int entry = 0; entry < 3; entry++)
             a[entry] = f[entry]/m;
-        }
+
 
         return a;
     }
@@ -50,17 +48,15 @@ public class SolarSystem {
     //helper-method to copy positions and velocities
     private static double[][] copy2DArray(double[][] arr){
         double[][] result = new double[arr.length][];
-        for(int i = 0; i < arr.length; i++){
+        for(int i = 0; i < arr.length; i++)
             result[i] = arr[i];
-        }
         return result;
     }
 
     public static double[][] calculateAccelerations(){
         double[][] accelerations = new double[SolarSystem.N_OF_OBJECTS][3];
-        for (int i = 0; i < SolarSystem.N_OF_OBJECTS; i++) {
+        for (int i = 0; i < SolarSystem.N_OF_OBJECTS; i++)
             accelerations[i] = SolarSystem.calculateAccelerationOfBody(i);
-        }
         return accelerations;
     }
 
