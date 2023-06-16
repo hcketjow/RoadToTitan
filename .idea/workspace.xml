@@ -5,44 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="33a527a4-ce80-4d65-afbb-d680f572122a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/out/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/.idea/out.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/Project-18-phase3/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/Project-18-phase3/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/Project-18-phase3/.idea/libraries/lib.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/Project-18-phase3/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/Project-18-phase3/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/Project-18-phase3/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/Project-18-phase3/ABSimulation.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/Project-18-phase3/AdamBashforthSolver.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/Project-18-phase3/AdamsMoulton.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/Project-18-phase3/AdamsMoultonSimulations.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/Project-18-phase3/DisplayCelestialBody.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/Project-18-phase3/DisplayProbe.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/Project-18-phase3/EulerSimulation.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/Project-18-phase3/EulerSolver.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/Project-18-phase3/GUI.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/Project-18-phase3/GradientDescent.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/Project-18-phase3/HillClimbing.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/Project-18-phase3/LandingModule.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/Project-18-phase3/MissionData.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/Project-18-phase3/Probe.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/Project-18-phase3/Project-18-phase3.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/Project-18-phase3/Project1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/Project-18-phase3/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/Project-18-phase3/RK3Solver.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/Project-18-phase3/RK4Simulation.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/Project-18-phase3/RungeKutta4Solver.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/Project-18-phase3/Simulations.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/Project-18-phase3/SolarSystem.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/Project-18-phase3/SpaceScene.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/Project-18-phase3/WindDistribution.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/Project-18-phase3/project1-21.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OpenController.java" beforeDir="false" afterPath="$PROJECT_DIR$/OpenController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,6 +52,12 @@
       <option name="ALTERNATIVE_JRE_PATH" value="18" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="GUI" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="OpenController" type="Application" factoryName="Application" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="OpenController" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>

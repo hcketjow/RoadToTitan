@@ -1,61 +1,52 @@
-import java.util.*;
-
+import java.util.Arrays;
 public class OpenController {
     public static void main(String[] args) {
-        executeThrustSchedule();
+        double[] start = {20, 45, 50}; // x, y, z position of the start planet
+        double[] destination = {40, 20, 50}; // x, y, z position of the destination planet
+        double[] finalPosition = executeThrustSchedule(10, start, destination);
+        System.out.println("Final Position: " + Arrays.toString(finalPosition));
     }
 
-    private static List<double[]> thrustSchedule; // forces that will be exerted from the probe in a set of time intervals
-
-    public static double[][] calculateThrustSchedule(int duration, double[] start, double[] destination) {
-        int numIntervals = duration + 1;
-        int dimention = start.length;
-        double[] incrementation = new double[dimention];
-        for (int i = 0; i < dimention; i++)
-            incrementation[i] = (destination[i] - start[i]) / duration;
-
-        double[][] thrustSchedule = new double[numIntervals][dimention];
-
-        for (int i = 0; i < numIntervals; i++) {
-            for (int j = 0; j < dimention; j++)
-                thrustSchedule[i][j] = start[j] + (incrementation[j] * i);
-        }
-
-        return thrustSchedule;
-    }
-
-    // execution of our thrust schedule until landing in 500 second intervals. the interval can change to our liking.
-    public static void executeThrustSchedule() {
-        double[][] getVelocity = SolarSystem.getVelocities();
-        for(var item: getVelocity){
-            for(var items: item){
-                thrustSchedule.get((int)items);
-            }
-        }
-        for (double[] thrust : thrustSchedule) {
-            applyThrust(thrust);
-            // Assuming that each thrust is applied for 500 seconds
-            try {
-                Thread.sleep(500 * 1000); // sleep for 500 seconds
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        }
-    }
-
+    private static double[][] thrustSchedule; // forces that will be exerted from the probe in a set of time intervals
     private static double[] currentPosition = new double[3]; // The current position of the probe
     private static double[] currentVelocity = new double[3]; // The current velocity of the probe
 
-    private static void applyThrust(double[] thrust) {
-        // Calculate the acceleration based on the thrust and the probe's mass (assuming mass is known)
-        double[] acceleration = new double[3];
-        for (int i = 0; i < 3; i++)
-            acceleration[i] = thrust[i] / 50000;
+    public static double[][] calculateThrustSchedule(int duration, double[] start, double[] destination) {
+        int numIntervals = duration + 1;
+        int dimension = start.length;
+        double[] incrementation = new double[dimension];
+        double[][] thrustSchedule = new double[numIntervals][dimension];
+        for (int i = 0; i < dimension; i++)
+            incrementation[i] = (destination[i] - start[i]) / duration;
+        for (int i = 0; i < numIntervals; i++)
+            for (int j = 0; j < dimension; j++)
+                thrustSchedule[i][j] = start[j] + (incrementation[j] * i);
+        return thrustSchedule;
+    }
 
-        // Update the velocity and position using the calculated acceleration
-        for (int i = 0; i < 3; i++) {
-            currentVelocity[i] += acceleration[i] * 500; // Assuming each thrust is applied for 500 seconds
-            currentPosition[i] += currentVelocity[i] * 500; // Assuming each thrust is applied for 500 seconds
+    public static double[] executeThrustSchedule(int duration, double[] start, double[] destination) {
+        double[][] getVelocity = SolarSystem.getVelocities();
+        thrustSchedule = calculateThrustSchedule(duration, start, destination);
+        int velocityIndex = 0; // index for iteration from the velocity
+        for (var item : getVelocity) {
+            if (velocityIndex < thrustSchedule.length) {
+                double[] thrust = thrustSchedule[velocityIndex];
+                applyThrust(thrust);
+                velocityIndex++;
+            }
+        }
+        return currentPosition;
+    }
+
+    private static void applyThrust(double[] thrust) {
+        int dimensions = 3;
+        double thrustDivisor = 50000.0;
+        double timeInterval = 500.0;
+
+        for (int i = 0; i < dimensions; i++) {
+            double acceleration = thrust[i] / thrustDivisor;
+            currentVelocity[i] += acceleration * timeInterval;
+            currentPosition[i] += currentVelocity[i] * timeInterval;
         }
     }
 }
