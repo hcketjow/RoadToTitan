@@ -5,6 +5,42 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="33a527a4-ce80-4d65-afbb-d680f572122a" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/out/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/.idea/out.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Project-18-phase3/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Project-18-phase3/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Project-18-phase3/.idea/libraries/lib.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Project-18-phase3/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Project-18-phase3/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Project-18-phase3/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Project-18-phase3/ABSimulation.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Project-18-phase3/AdamBashforthSolver.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Project-18-phase3/AdamsMoulton.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Project-18-phase3/AdamsMoultonSimulations.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Project-18-phase3/DisplayCelestialBody.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Project-18-phase3/DisplayProbe.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Project-18-phase3/EulerSimulation.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Project-18-phase3/EulerSolver.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Project-18-phase3/GUI.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Project-18-phase3/GradientDescent.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Project-18-phase3/HillClimbing.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Project-18-phase3/LandingModule.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Project-18-phase3/MissionData.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Project-18-phase3/Probe.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Project-18-phase3/Project-18-phase3.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Project-18-phase3/Project1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Project-18-phase3/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Project-18-phase3/RK3Solver.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Project-18-phase3/RK4Simulation.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Project-18-phase3/RungeKutta4Solver.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Project-18-phase3/Simulations.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Project-18-phase3/SolarSystem.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Project-18-phase3/SpaceScene.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Project-18-phase3/WindDistribution.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Project-18-phase3/project1-21.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
@@ -28,6 +64,7 @@
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;/Users/wojciech/Documents/Maastricht University/Project1_2-18/Project-18-phase3&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
@@ -41,6 +78,9 @@
       <recent name="com.apple" />
       <recent name="com" />
       <recent name="" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
     </key>
   </component>
   <component name="RunManager">
