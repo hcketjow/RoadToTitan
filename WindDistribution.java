@@ -3,24 +3,36 @@ import java.util.Random;
 
 class WindDistribution {
 
+    // The main method is here for just testing
     public static void main(String[] args) {
-        for (int i = 0; i < 10; i++) {
+        System.out.println("Just for testing");
+        System.out.println("Normal Distribution");
+        for (int i = 0; i < 5; i++) {
             System.out.println(Arrays.toString(SDN()));
         }
-        // System.out.println(Arrays.toString(Weibull()));
-        // System.out.println(Arrays.toString(Rayleigh()));
-
+        System.out.println("Weibull Distribution");
+        for (int i = 0; i < 5; i++) {
+            System.out.println(Arrays.toString(Weibull()));
+        }
+        System.out.println("Rayleigh Distribution");
+        for (int i = 0; i < 5; i++) {
+            System.out.println(Arrays.toString(Rayleigh()));
+        }
     }
 
-    public static double[] flat() //standard normal distribution
+    public static double[] flat() //flat distribution
     {
         double[] wind = new double[3];
-        Random ran = new Random();
-        double min = -1.0;
-        double max = 1.0;
+        Random random = new Random();
 
-        for (int i = 1; i < 3; i++) {
-            wind[i] = (ran.nextDouble() * 2) - 1;
+        // Define the range of the random variable
+        double minValue = 0.0;
+        double maxValue = 1.0;
+
+        // Generate a random value within the range
+        for (int i = 0; i < 3; i++) {
+            double randomValue = minValue + (maxValue - minValue) * random.nextDouble();
+            wind[i] = randomValue;
         }
 
         return wind;
