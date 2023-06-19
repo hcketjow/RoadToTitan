@@ -6,21 +6,25 @@ class WindDistribution {
     // The main method is here for just testing
     public static void main(String[] args) {
         System.out.println("Just for testing");
+        System.out.println("Flat Distribution");
+        for (int i = 0; i < 5; i++) {
+            System.out.println(Arrays.toString(flat()));
+        }
         System.out.println("Normal Distribution");
         for (int i = 0; i < 5; i++) {
             System.out.println(Arrays.toString(SDN()));
         }
         System.out.println("Weibull Distribution");
         for (int i = 0; i < 5; i++) {
-            System.out.println(Arrays.toString(Weibull()));
+            System.out.println(Arrays.toString(weibull()));
         }
         System.out.println("Rayleigh Distribution");
         for (int i = 0; i < 5; i++) {
-            System.out.println(Arrays.toString(Rayleigh()));
+            System.out.println(Arrays.toString(rayleigh()));
         }
     }
 
-    public static double[] flat() //flat distribution
+    public static double[] flat() //flat distribution, returns a value between 0 and 1
     {
         double[] wind = new double[3];
         Random random = new Random();
@@ -41,11 +45,9 @@ class WindDistribution {
     {
         double[] wind = new double[3];
         Random ran = new Random();
-        double min = -1.0;
-        double max = 1.0;
 
         for (int i = 1; i < 3; i++) {
-            wind[i] = (ran.nextGaussian() * 2) - 1;
+            wind[i] = ran.nextGaussian();
         }
 
         return wind;
@@ -63,7 +65,7 @@ class WindDistribution {
         return x;
     }
 
-    public static double[] Weibull() {
+    public static double[] weibull() {
         double shape = 2.5; // Shape parameter
         double scale = 1.0; // Scale parameter
         double[] wind = new double[3];
@@ -76,7 +78,7 @@ class WindDistribution {
 
 
 
-    private static double[] Rayleigh() {
+    private static double[] rayleigh() {
         Random random = new Random();
         double min = -1.0;
         double max = 1.0;
