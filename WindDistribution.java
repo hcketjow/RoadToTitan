@@ -65,7 +65,7 @@ class WindDistribution {
         return x;
     }
 
-    public static double[] weibull() {
+    public static double[] weibull() { //error
         double shape = 2.5; // Shape parameter
         double scale = 1.0; // Scale parameter
         double[] wind = new double[3];
@@ -78,11 +78,13 @@ class WindDistribution {
 
 
 
-    private static double[] rayleigh() {
+    private static double[] rayleigh(double scale) { //error
         Random random = new Random();
-        double min = -1.0;
-        double max = 1.0;
         double[] wind = new double[3];
+
+        double u = random.nextDouble();
+        double rayleighValue =
+
 
         double sigma = (max - min) / Math.sqrt(Math.PI / 2.0);
 
