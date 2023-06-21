@@ -1,2 +1,4 @@
-# Project-18-phase3
-This is the phase 3 of the project 18
+# project1-2
+- Specify SOLVER and TIME_STEP_SIZE in MissionData.java, change testingSolvers to true when using AB3 or AM2
+
+- Run GUI.java or Simulations.java
