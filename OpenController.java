@@ -64,8 +64,6 @@ public class OpenController {
             System.out.print(currentState.get(i) + " ");
         System.out.println("\n" + stateLog.size());
 
-
-
     }
 
     public static void initializeState(){ //call this from the constructor
@@ -128,8 +126,8 @@ public class OpenController {
     public static void simulation(double duration, double stepSize) {
         for (int time = 0; time <= duration; time += stepSize) {
 
-        }
 
+        }
     }
 
 

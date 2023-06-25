@@ -4,7 +4,7 @@ import javafx.stage.Stage;
 public class GUI extends Application {
 
     public static Stage window = new Stage();
-    public static SpaceScene scene;
+    public static SpaceScene scene; //SpaceScene
 
     public static void main(String[] args) {
         launch(args);
@@ -19,7 +19,7 @@ public class GUI extends Application {
         window.setWidth(1400);
         window.setHeight(800);
 
-        scene = new SpaceScene(window);
+        scene = new SpaceScene(window);//SpaceScene
         window.setScene(scene);
         window.show();
     }

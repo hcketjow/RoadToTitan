@@ -5,34 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="aa68edd6-d04f-45ca-83ba-a02296c39f75" name="Changes" comment="OpenLoop Controller with RK4">
-      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/lib.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ABSimulation.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AdamBashforthSolver.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AdamsMoulton.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AdamsMoultonSimulations.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DisplayCelestialBody.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DisplayProbe.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/EulerSimulation.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/EulerSolver.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GUI.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GradientDescent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/HillClimbing.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/LandingModule.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MissionData.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Probe.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/RK3Solver.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/RK4Simulation.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/RungeKutta4Solver.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Simulations.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SolarSystem.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SpaceScene.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DisplayLandingModule.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DisplayTitan.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LandingScene.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EulerSimulation.java" beforeDir="false" afterPath="$PROJECT_DIR$/EulerSimulation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EulerSolver.java" beforeDir="false" afterPath="$PROJECT_DIR$/EulerSolver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LandingModule.java" beforeDir="false" afterPath="$PROJECT_DIR$/LandingModule.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MissionData.java" beforeDir="false" afterPath="$PROJECT_DIR$/MissionData.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/OpenController.java" beforeDir="false" afterPath="$PROJECT_DIR$/OpenController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Project-18-phase3.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Project-18-phase3.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Project-18-phase3/OpenController.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -93,7 +75,7 @@
       <recent name="$PROJECT_DIR$/.idea" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.OpenController">
+  <component name="RunManager" selected="Application.GUI">
     <configuration name="GUI" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="GUI" />
       <module name="Project-18-phase3" />
@@ -131,10 +113,10 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.GUI" />
         <item itemvalue="Application.OpenController" />
         <item itemvalue="Application.LandingModule" />
         <item itemvalue="Application.WindDistribution" />
-        <item itemvalue="Application.GUI" />
         <item itemvalue="Application.GUI" />
       </list>
     </recent_temporary>
@@ -218,7 +200,14 @@
       <option name="project" value="LOCAL" />
       <updated>1687251529347</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="OpenLoop Controller with RK4">
+      <created>1687717128295</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1687717128297</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

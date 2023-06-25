@@ -10,7 +10,7 @@ public class EulerSolver {
 
         //final formula:
         //{new_pos, new_vel} = {prev_pos, prev_vel} + step * {prev_vel, prev_acc} ..where lhs is written into newState in code, {x1, x2} if a vector with entries x1, x2, pos/vel/acc 3d vectors
-        createNewState(newState, newPos, newVel, prevPos, prevVel, prevAcc);
+        createNewState(newState, newPos, newVel, prevPos, prevVel, prevAcc, MissionData.TIME_STEP_SIZE);
 
         return newState;
     }
@@ -25,17 +25,30 @@ public class EulerSolver {
 
         //final formula:
         //{new_pos, new_vel} = {prev_pos, prev_vel} + step * {prev_vel, prev_acc} ..where lhs is written into newState in code, {x1, x2} if a vector with entries x1, x2, pos/vel/acc 3d vectors
-        createNewState(newState, newPos, newVel, prevPos, prevVel, prevAcc);
+        createNewState(newState, newPos, newVel, prevPos, prevVel, prevAcc, MissionData.TIME_STEP_SIZE);
 
         return newState;
     }
 
-    private static void createNewState(double[][] newState, double[] newPos, double[] newVel, double[] prevPos, double[] prevVel, double[] prevAcc) {
+    private static void createNewState(double[][] newState, double[] newPos, double[] newVel, double[] prevPos, double[] prevVel, double[] prevAcc, long timeStepSize) {
         for(int entry = 0; entry < 3; entry++){
-            newPos[entry] = prevPos[entry] + MissionData.TIME_STEP_SIZE * prevVel[entry];
-            newVel[entry] = prevVel[entry] + MissionData.TIME_STEP_SIZE * prevAcc[entry];
+            newPos[entry] = prevPos[entry] + timeStepSize * prevVel[entry];
+            newVel[entry] = prevVel[entry] + timeStepSize * prevAcc[entry];
         }
         newState[0] = newPos;
         newState[1] = newVel;
+    }
+
+    public static double[][] eulersMethodForLandingModule(){
+        double[][] newState = new double[2][3];
+        double[] newPos = new double[3];
+        double[] newVel = new double[3];
+        double[] prevPos = LandingModule.getPosition();
+        double[] prevVel = LandingModule.getVelocity();
+        double[] prevAcc = LandingModule.calculateAccelerationOfModule();
+
+        createNewState(newState, newPos, newVel, prevPos, prevVel, prevAcc, MissionData.LANDING_STEP_SIZE);
+
+        return newState;
     }
 }

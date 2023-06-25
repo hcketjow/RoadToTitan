@@ -7,6 +7,8 @@ import static java.util.Map.entry;
 
 //Mission parameters specification
 public class MissionData {
+    //Mission to be simulated
+    static final String MISSION = "phase3"; //options: "phase2" - to Titan, orbit, go back; "phase3" - to Titan and land;
 
     //Differential equation solver
     static final String SOLVER = "euler"; //options: "euler", "rk4", "ab3", "am2";
@@ -14,6 +16,9 @@ public class MissionData {
 
     //Time step size in seconds
     public static final long TIME_STEP_SIZE = 5000;
+
+    //Landing step size in seconds
+    public static final long LANDING_STEP_SIZE = 10;
 
     public static final double GRAVITY_TITAN = 1.352 * Math.pow(10, -3);    //km/s^2
 
