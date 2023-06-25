@@ -1,0 +1,101 @@
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"AutoImportSettings\">\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\n  </component>\n  <component name=\"ChangeListManager\">\n    <list default=\"true\" id=\"33a527a4-ce80-4d65-afbb-d680f572122a\" name=\"Changes\" comment=\"\">\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/OpenController.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/OpenController.java\" afterDir=\"false\" />\n    </list>\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\n  </component>\n  <component name=\"Git.Settings\">\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\n  </component>\n  <component name=\"MarkdownSettingsMigration\">\n    <option name=\"stateVersion\" value=\"1\" />\n  </component>\n  <component name=\"ProjectId\" id=\"2RFzhrecAwGSQGH1CiZk2TzuB2u\" />\n  <component name=\"ProjectViewState\">\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\n    <option name=\"showLibraryContents\" value=\"true\" />\n  </component>\n  <component name=\"PropertiesComponent\">{\n  &quot;keyToString&quot;: {\n    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,\n    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,\n    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,\n    &quot;last_opened_file_path&quot;: &quot;/Users/wojciech/Documents/Maastricht University/Project1_2-18/Project-18-phase3&quot;,\n    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,\n    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,\n    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;\n  }\n}</component>\n  <component name=\"RecentsManager\">\n    <key name=\"CreateClassDialog.RecentsKey\">\n      <recent name=\"com.apple.laf.resources\" />\n      <recent name=\"com.apple.laf\" />\n      <recent name=\"com.apple\" />\n      <recent name=\"com\" />\n      <recent name=\"\" />\n    </key>\n    <key name=\"CopyFile.RECENT_KEYS\">\n      <recent name=\"$PROJECT_DIR$\" />\n    </key>\n  </component>\n  <component name=\"RunManager\">\n    <configuration name=\"GUI\" type=\"Application\" factoryName=\"Application\" nameIsGenerated=\"true\">\n      <option name=\"ALTERNATIVE_JRE_PATH\" value=\"18\" />\n      <option name=\"ALTERNATIVE_JRE_PATH_ENABLED\" value=\"true\" />\n      <option name=\"MAIN_CLASS_NAME\" value=\"GUI\" />\n      <method v=\"2\">\n        <option name=\"Make\" enabled=\"true\" />\n      </method>\n    </configuration>\n    <configuration name=\"OpenController\" type=\"Application\" factoryName=\"Application\" nameIsGenerated=\"true\">\n      <option name=\"MAIN_CLASS_NAME\" value=\"OpenController\" />\n      <method v=\"2\">\n        <option name=\"Make\" enabled=\"true\" />\n      </method>\n    </configuration>\n  </component>\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\n  <component name=\"TaskManager\">\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\n      <changelist id=\"33a527a4-ce80-4d65-afbb-d680f572122a\" name=\"Changes\" comment=\"\" />\n      <created>1686860740084</created>\n      <option name=\"number\" value=\"Default\" />\n      <option name=\"presentableId\" value=\"Default\" />\n      <updated>1686860740084</updated>\n    </task>\n    <servers />\n  </component>\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	
++++ b/.idea/workspace.xml	
+@@ -5,8 +5,35 @@
+   </component>
+   <component name="ChangeListManager">
+     <list default="true" id="33a527a4-ce80-4d65-afbb-d680f572122a" name="Changes" comment="">
++      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/OpenController.java" beforeDir="false" afterPath="$PROJECT_DIR$/OpenController.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/Project-18-phase3.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Project-18-phase3.iml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/out/production/Project-18-phase3/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project-18-phase3/.idea/misc.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/out/production/Project-18-phase3/ABSimulation.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project-18-phase3/ABSimulation.class" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/out/production/Project-18-phase3/AdamBashforthSolver.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project-18-phase3/AdamBashforthSolver.class" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/out/production/Project-18-phase3/AdamsMoulton.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project-18-phase3/AdamsMoulton.class" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/out/production/Project-18-phase3/AdamsMoultonSimulations.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project-18-phase3/AdamsMoultonSimulations.class" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/out/production/Project-18-phase3/DisplayCelestialBody.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project-18-phase3/DisplayCelestialBody.class" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/out/production/Project-18-phase3/DisplayProbe.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project-18-phase3/DisplayProbe.class" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/out/production/Project-18-phase3/EulerSimulation.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project-18-phase3/EulerSimulation.class" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/out/production/Project-18-phase3/EulerSolver.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project-18-phase3/EulerSolver.class" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/out/production/Project-18-phase3/GUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project-18-phase3/GUI.class" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/out/production/Project-18-phase3/GradientDescent.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project-18-phase3/GradientDescent.class" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/out/production/Project-18-phase3/HillClimbing.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project-18-phase3/HillClimbing.class" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/out/production/Project-18-phase3/LandingModule.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project-18-phase3/LandingModule.class" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/out/production/Project-18-phase3/MissionData.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project-18-phase3/MissionData.class" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/out/production/Project-18-phase3/Probe.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project-18-phase3/Probe.class" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/out/production/Project-18-phase3/Project-18-phase3.iml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project-18-phase3/Project-18-phase3.iml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/out/production/Project-18-phase3/Project1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project-18-phase3/Project1.class" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/out/production/Project-18-phase3/RK3Solver.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project-18-phase3/RK3Solver.class" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/out/production/Project-18-phase3/RK4Simulation.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project-18-phase3/RK4Simulation.class" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/out/production/Project-18-phase3/RungeKutta4Solver.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project-18-phase3/RungeKutta4Solver.class" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/out/production/Project-18-phase3/Simulations.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project-18-phase3/Simulations.class" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/out/production/Project-18-phase3/SolarSystem.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project-18-phase3/SolarSystem.class" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/out/production/Project-18-phase3/SpaceScene.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project-18-phase3/SpaceScene.class" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/out/production/Project-18-phase3/WindDistribution.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project-18-phase3/WindDistribution.class" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -24,17 +51,18 @@
+     <option name="hideEmptyMiddlePackages" value="true" />
+     <option name="showLibraryContents" value="true" />
+   </component>
+-  <component name="PropertiesComponent">{
+-  &quot;keyToString&quot;: {
+-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+-    &quot;last_opened_file_path&quot;: &quot;/Users/wojciech/Documents/Maastricht University/Project1_2-18/Project-18-phase3&quot;,
+-    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
+-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;
++  <component name="PropertiesComponent"><![CDATA[{
++  "keyToString": {
++    "RunOnceActivity.OpenProjectViewOnStart": "true",
++    "RunOnceActivity.ShowReadmeOnStart": "true",
++    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
++    "last_opened_file_path": "/Users/wojciech/Documents/Maastricht University/Project1_2-18/Project-18-phase3",
++    "project.structure.last.edited": "Problems",
++    "project.structure.proportion": "0.15",
++    "project.structure.side.proportion": "0.2",
++    "settings.editor.selected.configurable": "reference.projectsettings.compiler.javacompiler"
+   }
+-}</component>
++}]]></component>
+   <component name="RecentsManager">
+     <key name="CreateClassDialog.RecentsKey">
+       <recent name="com.apple.laf.resources" />
+@@ -47,7 +75,7 @@
+       <recent name="$PROJECT_DIR$" />
+     </key>
+   </component>
+-  <component name="RunManager">
++  <component name="RunManager" selected="Application.OpenController">
+     <configuration name="GUI" type="Application" factoryName="Application" nameIsGenerated="true">
+       <option name="ALTERNATIVE_JRE_PATH" value="18" />
+       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+@@ -58,10 +86,15 @@
+     </configuration>
+     <configuration name="OpenController" type="Application" factoryName="Application" nameIsGenerated="true">
+       <option name="MAIN_CLASS_NAME" value="OpenController" />
++      <module name="Project-18-phase3" />
+       <method v="2">
+         <option name="Make" enabled="true" />
+       </method>
+     </configuration>
++    <list>
++      <item itemvalue="Application.OpenController" />
++      <item itemvalue="Application.GUI" />
++    </list>
+   </component>
+   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+   <component name="TaskManager">

@@ -1,0 +1,114 @@
+<changelist name="Uncommitted_changes_before_Checkout_at_2023_06_24_14_34_[Changes]1" date="1687610054689" recycled="true" deleted="true">
+  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2023_06_24_14_34_[Changes]1/shelved.patch" />
+  <option name="DESCRIPTION" value="Uncommitted changes before Checkout at 2023/06/24 14:34 [Changes]" />
+  <binary>
+    <option name="BEFORE_PATH" value="out/production/Project-18-phase3/RK4Simulation.class" />
+    <option name="AFTER_PATH" value="out/production/Project-18-phase3/RK4Simulation.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2023_06_24_14_34_[Changes]1/RK4Simulation.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="out/production/Project-18-phase3/GradientDescent.class" />
+    <option name="AFTER_PATH" value="out/production/Project-18-phase3/GradientDescent.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2023_06_24_14_34_[Changes]1/GradientDescent.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="out/production/Project-18-phase3/RungeKutta4Solver.class" />
+    <option name="AFTER_PATH" value="out/production/Project-18-phase3/RungeKutta4Solver.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2023_06_24_14_34_[Changes]1/RungeKutta4Solver.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="out/production/Project-18-phase3/AdamsMoultonSimulations.class" />
+    <option name="AFTER_PATH" value="out/production/Project-18-phase3/AdamsMoultonSimulations.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2023_06_24_14_34_[Changes]1/AdamsMoultonSimulations.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="out/production/Project-18-phase3/MissionData.class" />
+    <option name="AFTER_PATH" value="out/production/Project-18-phase3/MissionData.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2023_06_24_14_34_[Changes]1/MissionData.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="out/production/Project-18-phase3/Simulations.class" />
+    <option name="AFTER_PATH" value="out/production/Project-18-phase3/Simulations.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2023_06_24_14_34_[Changes]1/Simulations.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="out/production/Project-18-phase3/HillClimbing.class" />
+    <option name="AFTER_PATH" value="out/production/Project-18-phase3/HillClimbing.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2023_06_24_14_34_[Changes]1/HillClimbing.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="out/production/Project-18-phase3/EulerSolver.class" />
+    <option name="AFTER_PATH" value="out/production/Project-18-phase3/EulerSolver.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2023_06_24_14_34_[Changes]1/EulerSolver.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="out/production/Project-18-phase3/GUI.class" />
+    <option name="AFTER_PATH" value="out/production/Project-18-phase3/GUI.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2023_06_24_14_34_[Changes]1/GUI.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="out/production/Project-18-phase3/RK3Solver.class" />
+    <option name="AFTER_PATH" value="out/production/Project-18-phase3/RK3Solver.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2023_06_24_14_34_[Changes]1/RK3Solver.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="out/production/Project-18-phase3/LandingModule.class" />
+    <option name="AFTER_PATH" value="out/production/Project-18-phase3/LandingModule.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2023_06_24_14_34_[Changes]1/LandingModule.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="out/production/Project-18-phase3/AdamsMoulton.class" />
+    <option name="AFTER_PATH" value="out/production/Project-18-phase3/AdamsMoulton.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2023_06_24_14_34_[Changes]1/AdamsMoulton.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="out/production/Project-18-phase3/DisplayCelestialBody.class" />
+    <option name="AFTER_PATH" value="out/production/Project-18-phase3/DisplayCelestialBody.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2023_06_24_14_34_[Changes]1/DisplayCelestialBody.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="out/production/Project-18-phase3/ABSimulation.class" />
+    <option name="AFTER_PATH" value="out/production/Project-18-phase3/ABSimulation.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2023_06_24_14_34_[Changes]1/ABSimulation.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="out/production/Project-18-phase3/Probe.class" />
+    <option name="AFTER_PATH" value="out/production/Project-18-phase3/Probe.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2023_06_24_14_34_[Changes]1/Probe.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="out/production/Project-18-phase3/WindDistribution.class" />
+    <option name="AFTER_PATH" value="out/production/Project-18-phase3/WindDistribution.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2023_06_24_14_34_[Changes]1/WindDistribution.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="out/production/Project-18-phase3/EulerSimulation.class" />
+    <option name="AFTER_PATH" value="out/production/Project-18-phase3/EulerSimulation.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2023_06_24_14_34_[Changes]1/EulerSimulation.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="out/production/Project-18-phase3/Project1.class" />
+    <option name="AFTER_PATH" value="out/production/Project-18-phase3/Project1.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2023_06_24_14_34_[Changes]1/Project1.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="out/production/Project-18-phase3/SpaceScene.class" />
+    <option name="AFTER_PATH" value="out/production/Project-18-phase3/SpaceScene.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2023_06_24_14_34_[Changes]1/SpaceScene.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="out/production/Project-18-phase3/AdamBashforthSolver.class" />
+    <option name="AFTER_PATH" value="out/production/Project-18-phase3/AdamBashforthSolver.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2023_06_24_14_34_[Changes]1/AdamBashforthSolver.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="out/production/Project-18-phase3/DisplayProbe.class" />
+    <option name="AFTER_PATH" value="out/production/Project-18-phase3/DisplayProbe.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2023_06_24_14_34_[Changes]1/DisplayProbe.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="out/production/Project-18-phase3/SolarSystem.class" />
+    <option name="AFTER_PATH" value="out/production/Project-18-phase3/SolarSystem.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2023_06_24_14_34_[Changes]1/SolarSystem.class" />
+  </binary>
+</changelist>
