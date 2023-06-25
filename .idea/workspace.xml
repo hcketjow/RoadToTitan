@@ -4,8 +4,35 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="aa68edd6-d04f-45ca-83ba-a02296c39f75" name="Changes" comment="">
+    <list default="true" id="aa68edd6-d04f-45ca-83ba-a02296c39f75" name="Changes" comment="OpenLoop Controller with RK4">
+      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/lib.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ABSimulation.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AdamBashforthSolver.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AdamsMoulton.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AdamsMoultonSimulations.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DisplayCelestialBody.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DisplayProbe.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/EulerSimulation.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/EulerSolver.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GUI.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GradientDescent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HillClimbing.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LandingModule.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MissionData.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Probe.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RK3Solver.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RK4Simulation.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RungeKutta4Solver.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Simulations.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SolarSystem.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SpaceScene.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OpenController.java" beforeDir="false" afterPath="$PROJECT_DIR$/OpenController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project-18-phase3.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Project-18-phase3.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Project-18-phase3/OpenController.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,28 +75,43 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/minaiiayaka/Desktop/Project-18-phase3&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.projectsettings.compiler.javacompiler&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "last_opened_file_path": "/Users/minaiiayaka/Desktop/Project-18-phase3",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "configurable.group.build"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/.idea" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.WindDistribution">
+  <component name="RunManager" selected="Application.OpenController">
     <configuration name="GUI" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="GUI" />
       <module name="Project-18-phase3" />
       <option name="VM_PARAMETERS" value="--module-path $PATH_TO_FX$ --add-modules javafx.controls,javafx.fxml" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="LandingModule" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="LandingModule" />
+      <module name="Project-18-phase3" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="OpenController" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="OpenController" />
+      <module name="Project-18-phase3" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -82,16 +124,18 @@
       </method>
     </configuration>
     <list>
+      <item itemvalue="Application.LandingModule" />
+      <item itemvalue="Application.OpenController" />
       <item itemvalue="Application.GUI" />
       <item itemvalue="Application.WindDistribution" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.OpenController" />
+        <item itemvalue="Application.LandingModule" />
         <item itemvalue="Application.WindDistribution" />
         <item itemvalue="Application.GUI" />
         <item itemvalue="Application.GUI" />
-        <item itemvalue="Application.WindDistribution" />
-        <item itemvalue="Application.WindDistribution" />
       </list>
     </recent_temporary>
   </component>
@@ -197,6 +241,7 @@
     <MESSAGE value="IntelliJ told me to commit this" />
     <MESSAGE value="Deleted complicated ones" />
     <MESSAGE value="Fixed bugs" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed bugs" />
+    <MESSAGE value="OpenLoop Controller with RK4" />
+    <option name="LAST_COMMIT_MESSAGE" value="OpenLoop Controller with RK4" />
   </component>
 </project>
