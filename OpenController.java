@@ -33,7 +33,6 @@ public class OpenController {
     public static ArrayList<double[]> simulationPositionLog = new ArrayList<double[]>();
 
     public static double duration = 100;// we specify this
-
     public static double stepSize = 10;// we specify this
 
     public static ArrayList<ArrayList<Double>> stateLog = new ArrayList<ArrayList<Double>>();
@@ -138,11 +137,11 @@ public class OpenController {
         if (Math.abs(finalState.get(5) % (2 * Math.PI)) > MissionData.EPSILON_THETA_LANDING) return false; //check if the angle is within the tolerance
         return true;
     }
-/*
+    /*
 
 
 
- */
+     */
 
     public static void simulation(double duration, double stepSize) {
         for (int time = 0; time <= duration; time += stepSize) {
