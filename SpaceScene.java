@@ -62,13 +62,14 @@ public class SpaceScene extends Scene {
         dateLabel.setTextFill(Paint.valueOf("ffffff"));
         if(!MissionData.testingSolvers.get()){
             precompute(computed, stepsOnOrbit, count, fuelToTitan, fuelToOrbit, fuelToEarth, vectorToTitan, vectorToOrbit, vectorToEarth);
+            Probe.landingOnTitan.set(false);
             createLabels(pane, fuelToTitan, fuelToOrbit, fuelToEarth, dateLabel);
         }
 
         AtomicInteger n = new AtomicInteger(0);
 
         Timeline animationTimeline = new Timeline(new KeyFrame(Duration.millis(0.5), x -> { //0.1
-            if(!Probe.landed.get()){
+            if(!Probe.landed.get() && !Probe.landingOnTitan.get()){
 
                 if(MissionData.testingSolvers.get()){
                     Simulations.simulationWithProbeOnce();
@@ -99,6 +100,8 @@ public class SpaceScene extends Scene {
         animationTimeline.setDelay(Duration.seconds(3));
         animationTimeline.setOnFinished(e -> {
             printWhenAnimationDone(startTime, stepsOnOrbit, fuelToTitan, fuelToOrbit, fuelToEarth, vectorToEarth);
+            if(Probe.landingOnTitan.get())
+                window.setScene(new LandingScene(window)); //calling the landing scene
         });
 
         animationTimeline.play();
@@ -183,11 +186,14 @@ public class SpaceScene extends Scene {
 //        ////END
 
         // CALL HILL CLIMBING 1
-        double[] initialVelocity = (double[])HillClimbing.computeNewVector(MissionData.SOLAR_SYSTEM_INIT_POSITIONS, MissionData.SOLAR_SYSTEM_INIT_VELOCITIES, MissionData.PROBE_INIT_POSITION, MissionData.PROBE_INIT_VELOCITY,java.time.Duration.between(MissionData.LAUNCH_DATE, MissionData.FINISH_DATE).getSeconds() / MissionData.TIME_STEP_SIZE, "going to titan orbit", "titan").get(0);
+        //TODO: uncomment hc call ?
+        //double[] initialVelocity = (double[])HillClimbing.computeNewVector(MissionData.SOLAR_SYSTEM_INIT_POSITIONS, MissionData.SOLAR_SYSTEM_INIT_VELOCITIES, MissionData.PROBE_INIT_POSITION, MissionData.PROBE_INIT_VELOCITY,java.time.Duration.between(MissionData.LAUNCH_DATE, MissionData.FINISH_DATE).getSeconds() / MissionData.TIME_STEP_SIZE, "going to titan orbit", "titan").get(0);
+        double[] initialVelocity = new double[]{43.989704204263134, -44.0001741313245, -3.079439045462185};
         Probe.setVelocity(initialVelocity);
         vectorToTitan.set(initialVelocity);
 
         //for Euler
+        //43.989704204263134, -44.0001741313245, -3.079439045462185                                     // 5000, actually computed with hc
         //Probe.setVelocity(new double[]{45.8092083845289, -43.45808842840217, -3.2066194551812415});   //  500, actually computed with hc
         //Probe.setVelocity(new double[]{43.20365254355913, -43.27244966306386, -3.1867000696038748});  // 1000, actually computed with hc
         //Probe.setVelocity(new double[]{42.78390972668268, -43.42975489664626, -3.281160892180449});   // 2000, actually computed with hc
@@ -204,9 +210,12 @@ public class SpaceScene extends Scene {
             if(!Probe.landed.get()){
                 Simulations.simulationWithProbeOnce();
                 checkMissionStages(stepsOnOrbit, count, fuelToTitan, fuelToOrbit, fuelToEarth, vectorToTitan, vectorToOrbit, vectorToEarth, computed);
-
                 updateLogs();
             }
+            if(Probe.landingOnTitan.get()){
+                break;
+            }
+
         }
 
         computed.set(true);
@@ -226,17 +235,22 @@ public class SpaceScene extends Scene {
             onFlyingToTitan();
         else if (count.get() == stepsOnOrbit.get()){
             if (!Probe.goingBack.get()){
-                Probe.landingOnTitan.set(true);
-                onStartingTitanLanding();
-                onFinishingOrbiting(Probe.goingBack, fuelToEarth, vectorToEarth, computed);
+                if(MissionData.MISSION.equals("phase3")){
+                    // onStartingTitanLanding();//why is it called twice?
+                    onStartingTitanLandingWithUserInput();
+                    return;
+                }else{
+                    onFinishingOrbiting(Probe.goingBack, fuelToEarth, vectorToEarth, computed);
+                }
             }
-            if(Probe.calculateDistanceToTarget("earth") <= MissionData.EARTH_RADIUS && !Probe.landed.get())
+            if(Probe.calculateDistanceToTarget("earth") <= MissionData.EARTH_RADIUS && !Probe.landed.get()) {
                 onLandingOnEarth(Probe.landed, vectorToTitan, vectorToOrbit, vectorToEarth);
-            else if (!Probe.landed.get())
+            }else if (!Probe.landed.get()) {
                 onFlyingBack();
-        }else if (Probe.calculateDistanceToTarget("titan") < MissionData.TITAN_RADIUS + 300)
+            }
+        }else if (Probe.calculateDistanceToTarget("titan") < MissionData.TITAN_RADIUS + 300) {
             onOrbiting(count);
-        else{
+        }else{
             System.out.println("distance to Titan: " + Probe.calculateDistanceToTarget("titan"));
             System.out.println("probe velocity*******: " + Arrays.toString(Probe.getVelocity()));
             System.out.println("unexpected behaviour...");
@@ -253,6 +267,50 @@ public class SpaceScene extends Scene {
     }
 
     private static void onStartingTitanLanding() {
+        Probe.landingOnTitan.set(true);
+
+        LandingModule.setPosition(new double[]{Probe.getPosition()[0], Probe.getPosition()[1], 0});
+//        LandingModule.setVelocity(new double[]{Probe.getVelocity()[0], Probe.getVelocity()[1], 0});
+        LandingModule.setVelocity(new double[]{Probe.getVelocity()[0] - SolarSystem.getVelocities()[MissionData.idMap.get("titan")][0], Probe.getVelocity()[1] - SolarSystem.getVelocities()[MissionData.idMap.get("titan")][1], 0});
+
+        System.out.println("!!!!!!!!These values are the example values for the user input!!!!!!!!");
+        double[] just4me = new double[]{Probe.getPosition()[0], Probe.getPosition()[1], 0};
+        System.out.println(Arrays.toString(just4me));
+        double[] just44me = new double[]{Probe.getVelocity()[0] - SolarSystem.getVelocities()[MissionData.idMap.get("titan")][0], Probe.getVelocity()[1] - SolarSystem.getVelocities()[MissionData.idMap.get("titan")][1], 0};
+        System.out.println(Arrays.toString(just44me));
+        /*
+[1.3659730286288338E9, -4.980193752742708E8, 0.0]
+[0.010132918664215396, 0.019170080934351574, 0.0]
+
+[1.3659730286288338E9, -4.980193752742708E8, 0.0]
+[0.010132918664215396, 0.019170080934351574, 0.0]
+         */
+
+
+        LandingModule.setU(-0.01);
+        LandingModule.setV(0);
+
+        System.out.println("trying to land");
+    }
+
+    private static void onStartingTitanLandingWithUserInput() {
+        Probe.landingOnTitan.set(true);
+
+        double[] landingModulePosition = new double[3];
+        landingModulePosition[0] = OpenController.takeVariableOfX();
+        landingModulePosition[1] = OpenController.takeVariableOfY();
+        landingModulePosition[2] = 0; //customizable
+        double[] landingModuleVelocity = new double[3];
+        landingModuleVelocity[0] = OpenController.takeVariableOfXVelocity();
+        landingModuleVelocity[1] = 0; //customizable
+        landingModuleVelocity[2] = 0; //customizable
+
+        LandingModule.setPosition(landingModulePosition);
+        LandingModule.setVelocity(landingModuleVelocity);
+
+        LandingModule.setU(-0.01);
+        LandingModule.setV(0);
+
         System.out.println("trying to land");
     }
 
@@ -321,7 +379,7 @@ public class SpaceScene extends Scene {
         return unitVector;
     }
 
-    private static void onEnteringTitanOrbit(AtomicBoolean reachedTitan, AtomicInteger stepsOnOrbit, AtomicReference<Double> fuelToOrbit, AtomicReference<Object> vectorToOrbit, AtomicBoolean computed) {
+    private static void  onEnteringTitanOrbit(AtomicBoolean reachedTitan, AtomicInteger stepsOnOrbit, AtomicReference<Double> fuelToOrbit, AtomicReference<Object> vectorToOrbit, AtomicBoolean computed) {
         System.out.println("**************************** TITAN'S VELOCITY MAGNITUDE: " + Math.sqrt(Math.pow(SolarSystem.getVelocities()[MissionData.idMap.get("titan")][0], 2) + Math.pow(SolarSystem.getVelocities()[MissionData.idMap.get("titan")][1], 2) + Math.pow(SolarSystem.getVelocities()[MissionData.idMap.get("titan")][2], 2)));
         System.out.println("**************************** TITAN'S VELOCITY: " + Arrays.toString(SolarSystem.getVelocities()[MissionData.idMap.get("titan")]));
         System.out.println("****************************");
@@ -355,6 +413,13 @@ public class SpaceScene extends Scene {
             Probe.setVelocity(v);
             vectorToOrbit.set(v);
         }
+
+//        //Andrej stuff
+//        double[] titanVelocity = SolarSystem.getVelocities()[MissionData.idMap.get("titan")];
+//        Probe.setVelocity(new double[]{titanVelocity[0]*1.0112, titanVelocity[1]*1.0112, titanVelocity[2]*1.0112});
+//        stepsOnOrbit.set(1000000000);
+//        //end
+
         reachedTitan.set(true);
     }
 
@@ -363,13 +428,4 @@ public class SpaceScene extends Scene {
         System.out.println("probe velocity**: " + Arrays.toString(Probe.getVelocity()));
     }
 
-    public void callHillClimbingAndFuel(long duration, String missionStage, String target, AtomicReference<Object> vector, AtomicReference<Double> fuel, AtomicReference<Object> stepsOnOrbit){
-        ArrayList<Object> vectorAndCount = HillClimbing.computeNewVector(Arrays.stream(SolarSystem.getPositions()).map(double[]::clone).toArray(s -> SolarSystem.getPositions().clone()), Arrays.stream(SolarSystem.getVelocities()).map(double[]::clone).toArray(s -> SolarSystem.getVelocities().clone()), Arrays.copyOf(Probe.getPosition(), 3), Arrays.copyOf(Probe.getVelocity(), 3), duration, missionStage, target);
-        double[] velocity = (double[]) vectorAndCount.get(0);
-        Probe.setVelocity(velocity);
-        vector.set(velocity);
-
-        if (missionStage.equals("staying on titan orbit"))
-            stepsOnOrbit.set((Integer) vectorAndCount.get(1));
-    }
 }
