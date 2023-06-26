@@ -39,13 +39,13 @@ public class EulerSolver {
         newState[1] = newVel;
     }
 
-    public static double[][] eulersMethodForLandingModule(){
+    public static double[][] eulersMethodForLandingModule(int count){
         double[][] newState = new double[2][3];
         double[] newPos = new double[3];
         double[] newVel = new double[3];
         double[] prevPos = LandingModule.getPosition();
         double[] prevVel = LandingModule.getVelocity();
-        double[] prevAcc = LandingModule.calculateAccelerationOfModule();
+        double[] prevAcc = LandingModule.calculateAccelerationOfModule(count);
 
         createNewState(newState, newPos, newVel, prevPos, prevVel, prevAcc, MissionData.LANDING_STEP_SIZE);
 
