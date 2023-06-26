@@ -152,7 +152,7 @@ public class RungeKutta4Solver {
 
 
 // Below are the methods used for the landing module
-
+    /*
     public static ArrayList<Double> rk4MethodForLandingModule(double t, double stepSize) {
         ArrayList<Double> newState = new ArrayList<Double>();
 
@@ -178,11 +178,11 @@ public class RungeKutta4Solver {
         ArrayList<Double> k1 = OpenController.stateDerivative;
 
         k1.set(0, OpenController.currentState.get(1));
-        k1.set(1, OpenController.accelerationFromMainThruster * Math.sin(OpenController.currentState.get(4)));
+        k1.set(1, OpenController.getU() * Math.sin(OpenController.currentState.get(4)));
         k1.set(2, OpenController.currentState.get(3));
-        k1.set(3, OpenController.accelerationFromMainThruster * Math.cos(OpenController.currentState.get(4) - OpenController.GRAVITY_FROM_TITAN));
+        k1.set(3, OpenController.getU() * Math.cos(OpenController.currentState.get(4) - MissionData.GRAVITY_TITAN));
         k1.set(4, OpenController.currentState.get(5));
-        k1.set(5, OpenController.accelerationFromSideThruster);
+        k1.set(5, OpenController.getV());
 
         for (int i = 0; i < 6; i++) {
             k1.set(i, stepSize * k1.get(i));
@@ -197,7 +197,7 @@ public class RungeKutta4Solver {
         k2.add(OpenController.stateDerivative.get(1));
         k2.add(getU(t + 0.5 * stepSize) * Math.sin(OpenController.currentState.get(4) + 0.5 * k1.get(4)));
         k2.add(OpenController.stateDerivative.get(3));
-        k2.add(getU(t + 0.5 * stepSize) * Math.cos(OpenController.currentState.get(4) + 0.5 * k1.get(4)) - OpenController.GRAVITY_FROM_TITAN);
+        k2.add(getU(t + 0.5 * stepSize) * Math.cos(OpenController.currentState.get(4) + 0.5 * k1.get(4)) - MissionData.GRAVITY_TITAN);
         k2.add(OpenController.stateDerivative.get(5));
         k2.add(getV(t + 0.5 * stepSize));
 
@@ -210,7 +210,7 @@ public class RungeKutta4Solver {
         k3.add(OpenController.stateDerivative.get(1));
         k3.add(getU(t + 0.5 * stepSize) * Math.sin(OpenController.currentState.get(4) + 0.5 * k2.get(4)));
         k3.add(OpenController.stateDerivative.get(3));
-        k3.add(getU(t + 0.5 * stepSize) * Math.cos(OpenController.currentState.get(4) + 0.5 * k2.get(4)) - OpenController.GRAVITY_FROM_TITAN);
+        k3.add(getU(t + 0.5 * stepSize) * Math.cos(OpenController.currentState.get(4) + 0.5 * k2.get(4)) - MissionData.GRAVITY_TITAN);
         k3.add(OpenController.stateDerivative.get(5));
         k3.add(getV(t + 0.5 * stepSize));
 
@@ -223,7 +223,7 @@ public class RungeKutta4Solver {
         k4.add(OpenController.stateDerivative.get(1));
         k4.add(getU(t + stepSize) * Math.sin(OpenController.currentState.get(4) + k3.get(4)));
         k4.add(OpenController.stateDerivative.get(3));
-        k4.add(getU(t + stepSize) * Math.cos(OpenController.currentState.get(4) + k3.get(4)) - OpenController.GRAVITY_FROM_TITAN);
+        k4.add(getU(t + stepSize) * Math.cos(OpenController.currentState.get(4) + k3.get(4)) - MissionData.GRAVITY_TITAN);
         k4.add(OpenController.stateDerivative.get(5));
         k4.add(getV(t + stepSize));
 
@@ -239,5 +239,5 @@ public class RungeKutta4Solver {
         double v = 0;
         return v;
     }
-
+*/
 }
