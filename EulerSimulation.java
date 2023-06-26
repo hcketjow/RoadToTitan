@@ -20,8 +20,8 @@ public class EulerSimulation {
         Probe.setVelocity(newProbeState[1]);
     }
 
-    public static void simulationWithLandingModuleOnce(){
-        double[][] newModuleState = EulerSolver.eulersMethodForLandingModule();
+    public static void simulationWithLandingModuleOnce(int count){
+        double[][] newModuleState = EulerSolver.eulersMethodForLandingModule(count);
         LandingModule.setPosition(newModuleState[0]);
         LandingModule.setVelocity(newModuleState[1]);
         System.out.println(Arrays.deepToString(newModuleState));
