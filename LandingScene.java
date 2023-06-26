@@ -31,8 +31,11 @@ public class LandingScene extends Scene {
         pane.getChildren().add(titan);
 
         //TODO: change z-component to rotation
+
         //TODO: set centre of module
+        //LandingModule.setPosition();
         //TODO: rotate module
+        //LandingModule.setVelocity();
 
         DisplayLandingModule landingModule = new DisplayLandingModule(titan);
         pane.getChildren().add(landingModule);
@@ -72,7 +75,7 @@ public class LandingScene extends Scene {
                 System.out.println(Arrays.toString(SolarSystem.getPositions()[8]));
 
                 //group.setRotate(0);
-                EulerSimulation.simulationWithLandingModuleOnce();
+                EulerSimulation.simulationWithLandingModuleOnce(count.get());
                 titan.setLocationOfTitan();
                 landingModule.setLocationOfModule(titan);
                 landingModule.alignModuleCentre();
@@ -84,10 +87,13 @@ public class LandingScene extends Scene {
                 count.set(count.get() + 1);
             }
 
+
         }));
         animationTimeline.setCycleCount(30);
         animationTimeline.setDelay(Duration.seconds(3));
         animationTimeline.setOnFinished(e -> {
+            System.out.println("とりあえずpositionは行けてる");
+            System.out.println(LandingModule.checkLandingConditions());
             System.out.println("landing done");
         });
 
